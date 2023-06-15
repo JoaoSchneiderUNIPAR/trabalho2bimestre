@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ordem Decrescente</title>
+  <script>
+    function ordenarValores() {
+      var valores = [];
+      
+      // Ler os valores dos inputs
+      for (var i = 1; i <= 5; i++) {
+        var valor = parseInt(document.getElementById("valor" + i).value);
+        valores.push(valor);
+      }
+
+      // Ordenar os valores em ordem decrescente
+      valores.sort(function(a, b) {
+        return b - a;
+      });
+
+      // Exibir os valores ordenados
+      var resultado = document.getElementById("resultado");
+      resultado.innerHTML = "Valores em ordem decrescente: " + valores.join(", ");
+    }
+  </script>
+</head>
+<body>
+  <h2>Ordem Decrescente</h2>
+  <label for="valor1">Valor 1:</label>
+  <input type="number" id="valor1">
+  <label for="valor2">Valor 2:</label>
+  <input type="number" id="valor2">
+  <label for="valor3">Valor 3:</label>
+  <input type="number" id="valor3">
+  <label for="valor4">Valor 4:</label>
+  <input type="number" id="valor4">
+  <label for="valor5">Valor 5:</label>
+  <input type="number" id="valor5">
+  <button onclick="ordenarValores()">Ordenar</button>
+  <div id="resultado"></div>
+</body>
+</html>
+
+
+<br>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verificação de Triângulo</title>
+  <script>
+    function verificarTriangulo() {
+      var x = parseFloat(document.getElementById("x").value);
+      var y = parseFloat(document.getElementById("y").value);
+      var z = parseFloat(document.getElementById("z").value);
+
+      var resultado = document.getElementById("resultado");
+
+      if (x < y + z && y < x + z && z < x + y) {
+        if (x === y && y === z) {
+          resultado.innerHTML = "Triângulo Equilátero";
+        } else if (x === y || y === z || x === z) {
+          resultado.innerHTML = "Triângulo Isósceles";
+        } else {
+          resultado.innerHTML = "Triângulo Escaleno";
+        }
+      } else {
+        resultado.innerHTML = "Os valores não formam um triângulo";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Verificação de Triângulo</h2>
+  <label for="x">Valor de X:</label>
+  <input type="number" id="x">
+  <label for="y">Valor de Y:</label>
+  <input type="number" id="y">
+  <label for="z">Valor de Z:</label>
+  <input type="number" id="z">
+  <button onclick="verificarTriangulo()">Verificar</button>
+  <div id="resultado"></div>
+</body>
+</html>
+
+
+
+<br>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contagem de Notas</title>
+  <script>
+    function calcularNotas() {
+      var valor = parseInt(document.getElementById("valor").value);
+      var notas = [100, 50, 10, 5, 1];
+      var resultado = "Valor lido: R$" + valor + "<br><br>Relação de notas necessárias:<br><br>";
+
+      for (var i = 0; i < notas.length; i++) {
+        var quantidadeNotas = Math.floor(valor / notas[i]);
+        valor = valor % notas[i];
+        resultado += notas[i] + " reais: " + quantidadeNotas + "<br>";
+      }
+
+      document.getElementById("resultado").innerHTML = resultado;
+    }
+  </script>
+</head>
+<body>
+  <h2>Contagem de Notas</h2>
+  <label for="valor">Digite o valor em reais:</label>
+  <input type="number" id="valor">
+  <button onclick="calcularNotas()">Calcular</button>
+  <div id="resultado"></div>
+</body>
+</html>
+
+
+
+<br>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Imposto do DETRAN</title>
+  <script>
+    function calcularImposto() {
+      var ano = parseInt(document.getElementById("ano").value);
+      var valorTabela = parseFloat(document.getElementById("valorTabela").value);
+      var taxa;
+
+      if (ano < 1990) {
+        taxa = 0.01; // 1% para carros fabricados antes de 1990
+      } else {
+        taxa = 0.015; // 1.5% para carros fabricados a partir de 1990
+      }
+
+      var imposto = valorTabela * taxa;
+
+      document.getElementById("resultado").innerHTML = "Imposto a ser pago: R$" + imposto.toFixed(2);
+    }
+  </script>
+</head>
+<body>
+  <h2>Calculadora de Imposto do DETRAN</h2>
+  <label for="ano">Digite o ano de fabricação do carro:</label>
+  <input type="number" id="ano">
+  <label for="valorTabela">Digite o valor de tabela do carro:</label>
+  <input type="number" id="valorTabela">
+  <button onclick="calcularImposto()">Calcular</button>
+  <div id="resultado"></div>
+</body>
+</html>
+
+
+
+<br>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Aumento Salarial</title>
+  <script>
+    function calcularAumento() {
+      var salarioAntigo = parseFloat(document.getElementById("salario").value);
+      var cargo = document.getElementById("cargo").value;
+      var novoSalario;
+
+      switch (cargo) {
+        case "Gerente":
+          novoSalario = salarioAntigo + (salarioAntigo * 0.1); // 10% de aumento para o cargo de Gerente
+          break;
+        case "Engenheiro":
+          novoSalario = salarioAntigo + (salarioAntigo * 0.2); // 20% de aumento para o cargo de Engenheiro
+          break;
+        case "Técnico":
+          novoSalario = salarioAntigo + (salarioAntigo * 0.3); // 30% de aumento para o cargo de Técnico
+          break;
+        default:
+          novoSalario = salarioAntigo + (salarioAntigo * 0.4); // 40% de aumento para cargos não listados na tabela
+          break;
+      }
+
+      var diferenca = novoSalario - salarioAntigo;
+
+      document.getElementById("resultado").innerHTML = "Salário antigo: R$" + salarioAntigo.toFixed(2) + "<br><br>" +
+                                                       "Novo salário: R$" + novoSalario.toFixed(2) + "<br><br>" +
+                                                       "Diferença: R$" + diferenca.toFixed(2);
+    }
+  </script>
+</head>
+<body>
+  <h2>Calculadora de Aumento Salarial</h2>
+  <label for="salario">Digite o salário atual do funcionário:</label>
+  <input type="number" id="salario">
+  <label for="cargo">Digite o cargo do funcionário:</label>
+  <input type="text" id="cargo">
+  <button onclick="calcularAumento()">Calcular</button>
+  <div id="resultado"></div>
+</body>
+</html>
+
+
+
+<br>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cálculo de Crédito Especial</title>
+  <script>
+    function calcularCredito() {
+      var saldoMedio = parseFloat(document.getElementById("saldoMedio").value);
+      var credito;
+
+      if (saldoMedio >= 0 && saldoMedio <= 200) {
+        credito = 0; // Nenhum crédito para saldo médio de 0 a 200
+      } else if (saldoMedio <= 400) {
+        credito = saldoMedio * 0.2; // 20% de crédito para saldo médio de 201 a 400
+      } else if (saldoMedio <= 600) {
+        credito = saldoMedio * 0.3; // 30% de crédito para saldo médio de 401 a 600
+      } else {
+        credito = saldoMedio * 0.4; // 40% de crédito para saldo médio acima de 601
+      }
+
+      document.getElementById("resultado").innerHTML = "Saldo Médio: R$" + saldoMedio.toFixed(2) + "<br><br>" +
+                                                       "Valor do Crédito: R$" + credito.toFixed(2);
+    }
+  </script>
+</head>
+<body>
+  <h2>Cálculo de Crédito Especial</h2>
+  <label for="saldoMedio">Digite o saldo médio do cliente:</label>
+  <input type="number" id="saldoMedio">
+  <button onclick="calcularCredito()">Calcular</button>
+  <div id="resultado"></div>
+</body>
+</html>
+
+
+
+<br>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Pedidos</title>
+  <script>
+    function calcularValor() {
+      var codigo = parseInt(document.getElementById("codigo").value);
+      var quantidade = parseInt(document.getElementById("quantidade").value);
+      var valorTotal;
+
+      switch (codigo) {
+        case 100:
+          valorTotal = 11.00 * quantidade; // Cachorro quente - preço: R$11.00
+          break;
+        case 101:
+          valorTotal = 8.50 * quantidade; // Bauru - preço: R$8.50
+          break;
+        case 102:
+          valorTotal = 8.00 * quantidade; // Misto Quente - preço: R$8.00
+          break;
+        case 103:
+          valorTotal = 9.00 * quantidade; // Hamburger - preço: R$9.00
+          break;
+        case 104:
+          valorTotal = 10.00 * quantidade; // Cheeseburger - preço: R$10.00
+          break;
+        case 105:
+          valorTotal = 4.50 * quantidade; // Refrigerante - preço: R$4.50
+          break;
+        default:
+          valorTotal = 0; // Código inválido
+          break;
+      }
+
+      document.getElementById("resultado").innerHTML = "Valor total a ser pago: R$" + valorTotal.toFixed(2);
+    }
+  </script>
+</head>
+<body>
+  <h2>Calculadora de Pedidos</h2>
+  <label for="codigo">Digite o código do item pedido:</label>
+  <input type="number" id="codigo">
+  <label for="quantidade">Digite a quantidade:</label>
+  <input type="number" id="quantidade">
+  <button onclick="calcularValor()">Calcular</button>
+  <div id="resultado"></div>
+</body>
+</html>
+
+
+
+<br>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Peso Ideal</title>
+  <script>
+    function calcularPesoIdeal() {
+      var altura = parseFloat(document.getElementById("altura").value);
+      var sexo = document.getElementById("sexo").value;
+      var pesoIdeal;
+
+      if (sexo === "masculino") {
+        pesoIdeal = (72.7 * altura) - 58;
+      } else if (sexo === "feminino") {
+        pesoIdeal = (62.1 * altura) - 44.7;
+      } else {
+        pesoIdeal = 0; // Sexo inválido
+      }
+
+      if (pesoIdeal > 0) {
+        document.getElementById("resultado").innerHTML = "Peso ideal: " + pesoIdeal.toFixed(2) + " kg";
+      } else {
+        document.getElementById("resultado").innerHTML = "Sexo inválido";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Calculadora de Peso Ideal</h2>
+  <label for="altura">Digite a altura em metros:</label>
+  <input type="number" step="0.01" id="altura">
+  <label for="sexo">Selecione o sexo:</label>
+  <select id="sexo">
+    <option value="masculino">Masculino</option>
+    <option value="feminino">Feminino</option>
+  </select>
+  <button onclick="calcularPesoIdeal()">Calcular</button>
+  <div id="resultado"></div>
+</body>
+</html>
+
+
+
+<br>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Pagamento</title>
+  <script>
+    function calcularPagamento() {
+      var precoEtiqueta = parseFloat(document.getElementById("precoEtiqueta").value);
+      var condicaoPagamento = document.getElementById("condicaoPagamento").value;
+      var valorPago;
+
+      switch (condicaoPagamento) {
+        case "a":
+          valorPago = precoEtiqueta * 0.9; // À vista em dinheiro ou cheque, 10% de desconto
+          break;
+        case "b":
+          valorPago = precoEtiqueta * 0.85; // À vista no cartão de crédito, 15% de desconto
+          break;
+        case "c":
+          valorPago = precoEtiqueta; // Em duas vezes, preço normal de etiqueta sem juros
+          break;
+        case "d":
+          valorPago = precoEtiqueta * 1.1; // Em duas vezes, preço normal de etiqueta mais juros de 10%
+          break;
+        default:
+          valorPago = 0; // Condição de pagamento inválida
+          break;
+      }
+
+      if (valorPago > 0) {
+        document.getElementById("resultado").innerHTML = "Valor a ser pago: R$" + valorPago.toFixed(2);
+      } else {
+        document.getElementById("resultado").innerHTML = "Condição de pagamento inválida";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Calculadora de Pagamento</h2>
+  <label for="precoEtiqueta">Digite o preço normal de etiqueta:</label>
+  <input type="number" step="0.01" id="precoEtiqueta">
+  <label for="condicaoPagamento">Selecione a condição de pagamento:</label>
+  <select id="condicaoPagamento">
+    <option value="a">À vista em dinheiro ou cheque</option>
+    <option value="b">À vista no cartão de crédito</option>
+    <option value="c">Em duas vezes</option>
+    <option value="d">Em duas vezes com juros</option>
+  </select>
+  <button onclick="calcularPagamento()">Calcular</button>
+  <div id="resultado"></div>
+</body>
+</html>
+
+
+
+<br>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Salário do Professor</title>
+  <script>
+    function calcularSalario() {
+      var nivel = document.getElementById("nivel").value;
+      var horasAula = parseInt(document.getElementById("horasAula").value);
+      var valorHoraAula;
+      var salario;
+
+      switch (nivel) {
+        case "1":
+          valorHoraAula = 12.00; // Nível 1 - valor da hora/aula: R$12.00
+          break;
+        case "2":
+          valorHoraAula = 17.00; // Nível 2 - valor da hora/aula: R$17.00
+          break;
+        case "3":
+          valorHoraAula = 25.00; // Nível 3 - valor da hora/aula: R$25.00
+          break;
+        default:
+          valorHoraAula = 0; // Nível inválido
+          break;
+      }
+
+      salario = valorHoraAula * horasAula * 4.5;
+
+      if (salario > 0) {
+        document.getElementById("resultado").innerHTML = "Salário do professor: R$" + salario.toFixed(2);
+      } else {
+        document.getElementById("resultado").innerHTML = "Nível de professor inválido";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Calculadora de Salário do Professor</h2>
+  <label for="nivel">Selecione o nível do professor:</label>
+  <select id="nivel">
+    <option value="1">Nível 1</option>
+    <option value="2">Nível 2</option>
+    <option value="3">Nível 3</option>
+  </select>
+  <label for="horasAula">Digite a quantidade de horas/aula por semana:</label>
+  <input type="number" id="horasAula">
+  <button onclick="calcularSalario()">Calcular</button>
+  <div id="resultado"></div>
+</body>
+</html>

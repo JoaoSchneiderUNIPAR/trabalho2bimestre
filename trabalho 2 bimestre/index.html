@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cálculo da Área do Terreno</title>
+</head>
+<body>
+  <h1>Cálculo da Área do Terreno</h1>
+
+  <form>
+    <label for="comprimento">Comprimento:</label>
+    <input type="number" id="comprimento" name="comprimento" required>
+
+    <label for="largura">Largura:</label>
+    <input type="number" id="largura" name="largura" required>
+
+    <button type="button" onclick="calcularArea()">Calcular Área</button>
+  </form>
+
+  <p id="resultado"></p>
+
+  <script>
+    function calcularArea() {
+      const comprimento = parseFloat(document.getElementById("comprimento").value);
+      const largura = parseFloat(document.getElementById("largura").value);
+
+      if (isNaN(comprimento) || isNaN(largura)) {
+        document.getElementById("resultado").textContent = "Por favor, insira valores válidos.";
+      } else {
+        const area = comprimento * largura;
+        document.getElementById("resultado").textContent = "A área do terreno é: " + area + " metros quadrados.";
+      }
+    }
+  </script>
+</body>
+</html>
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cálculo de Ferraduras para Cavalos</title>
+</head>
+<body>
+  <h1>Cálculo de Ferraduras para Cavalos</h1>
+
+  <form>
+    <label for="numCavalos">Número de Cavalos:</label>
+    <input type="number" id="numCavalos" name="numCavalos" min="0" required>
+
+    <label for="ferradurasPorCavalo">Ferraduras por Cavalo:</label>
+    <input type="number" id="ferradurasPorCavalo" name="ferradurasPorCavalo" min="0" required>
+
+    <button type="button" onclick="calcularFerraduras()">Calcular</button>
+  </form>
+
+  <p id="resultado"></p>
+
+  <script>
+    function calcularFerraduras() {
+      const numCavalos = parseInt(document.getElementById("numCavalos").value);
+      const ferradurasPorCavalo = parseInt(document.getElementById("ferradurasPorCavalo").value);
+
+      if (isNaN(numCavalos) || isNaN(ferradurasPorCavalo)) {
+        document.getElementById("resultado").textContent = "Por favor, insira valores válidos.";
+      } else {
+        const totalFerraduras = numCavalos * ferradurasPorCavalo;
+        document.getElementById("resultado").textContent = "Serão necessárias " + totalFerraduras + " ferraduras para equipar todos os cavalos.";
+      }
+    }
+  </script>
+</body>
+</html>
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cálculo de Venda na Padaria</title>
+</head>
+<body>
+  <h1>Cálculo de Venda na Padaria</h1>
+
+  <form>
+    <label for="quantidadePaes">Quantidade de Pães:</label>
+    <input type="number" id="quantidadePaes" name="quantidadePaes" min="0" required>
+
+    <label for="quantidadeBroas">Quantidade de Broas:</label>
+    <input type="number" id="quantidadeBroas" name="quantidadeBroas" min="0" required>
+
+    <button type="button" onclick="calcularVenda()">Calcular</button>
+  </form>
+
+  <p id="totalArrecadado"></p>
+  <p id="valorPoupanca"></p>
+
+  <script>
+    function calcularVenda() {
+      const quantidadePaes = parseInt(document.getElementById("quantidadePaes").value);
+      const quantidadeBroas = parseInt(document.getElementById("quantidadeBroas").value);
+
+      if (isNaN(quantidadePaes) || isNaN(quantidadeBroas)) {
+        document.getElementById("totalArrecadado").textContent = "Por favor, insira valores válidos.";
+        document.getElementById("valorPoupanca").textContent = "";
+      } else {
+        const precoPao = 0.12;
+        const precoBroa = 1.50;
+
+        const totalVenda = quantidadePaes * precoPao + quantidadeBroas * precoBroa;
+        const valorPoupanca = totalVenda * 0.1;
+
+        document.getElementById("totalArrecadado").textContent = "Total arrecadado: R$ " + totalVenda.toFixed(2);
+        document.getElementById("valorPoupanca").textContent = "Valor a ser guardado na poupança: R$ " + valorPoupanca.toFixed(2);
+      }
+    }
+  </script>
+</body>
+</html>
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cálculo de Dias de Vida</title>
+</head>
+<body>
+  <h1>Cálculo de Dias de Vida</h1>
+
+  <form>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade" name="idade" min="0" required>
+
+    <button type="button" onclick="calcularDiasVida()">Calcular</button>
+  </form>
+
+  <p id="resultado"></p>
+
+  <script>
+    function calcularDiasVida() {
+      const nome = document.getElementById("nome").value;
+      const idade = parseInt(document.getElementById("idade").value);
+
+      if (isNaN(idade)) {
+        document.getElementById("resultado").textContent = "Por favor, insira uma idade válida.";
+      } else {
+        const diasVida = idade * 365;
+        document.getElementById("resultado").textContent = nome + " possui aproximadamente " + diasVida + " dias de vida.";
+      }
+    }
+  </script>
+</body>
+</html>
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cálculo de Litros de Gasolina</title>
+</head>
+<body>
+  <h1>Cálculo de Litros de Gasolina</h1>
+
+  <form>
+    <label for="precoLitro">Preço do Litro:</label>
+    <input type="number" id="precoLitro" name="precoLitro" min="0" step="0.01" required>
+
+    <label for="valorPagamento">Valor do Pagamento:</label>
+    <input type="number" id="valorPagamento" name="valorPagamento" min="0" step="0.01" required>
+
+    <button type="button" onclick="calcularLitros()">Calcular</button>
+  </form>
+
+  <p id="litrosColocados"></p>
+
+  <script>
+    function calcularLitros() {
+      const precoLitro = parseFloat(document.getElementById("precoLitro").value);
+      const valorPagamento = parseFloat(document.getElementById("valorPagamento").value);
+
+      if (isNaN(precoLitro) || isNaN(valorPagamento)) {
+        document.getElementById("litrosColocados").textContent = "Por favor, insira valores válidos.";
+      } else {
+        const litrosColocados = valorPagamento / precoLitro;
+        document.getElementById("litrosColocados").textContent = "Você conseguiu colocar aproximadamente " + litrosColocados.toFixed(2) + " litros no tanque.";
+      }
+    }
+  </script>
+</body>
+</html>
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cálculo de Valor a Pagar</title>
+</head>
+<body>
+  <h1>Cálculo de Valor a Pagar</h1>
+
+  <form>
+    <label for="pesoPrato">Peso do Prato (em quilos):</label>
+    <input type="number" id="pesoPrato" name="pesoPrato" min="0" step="0.01" required>
+
+    <button type="button" onclick="calcularValorPagar()">Calcular</button>
+  </form>
+
+  <p id="valorPagar"></p>
+
+  <script>
+    function calcularValorPagar() {
+      const precoQuilo = 12.00;
+      const pesoPrato = parseFloat(document.getElementById("pesoPrato").value);
+
+      if (isNaN(pesoPrato)) {
+        document.getElementById("valorPagar").textContent = "Por favor, insira um peso válido.";
+      } else {
+        const valorPagar = precoQuilo * pesoPrato;
+        document.getElementById("valorPagar").textContent = "Valor a pagar: R$ " + valorPagar.toFixed(2);
+      }
+    }
+  </script>
+</body>
+</html>
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cálculo de Dias do Ano</title>
+</head>
+<body>
+  <h1>Cálculo de Dias do Ano</h1>
+
+  <form>
+    <label for="dia">Dia:</label>
+    <input type="number" id="dia" name="dia" min="1" max="30" required>
+
+    <label for="mes">Mês:</label>
+    <input type="number" id="mes" name="mes" min="1" max="12" required>
+
+    <button type="button" onclick="calcularDias()">Calcular</button>
+  </form>
+
+  <p id="resultado"></p>
+
+  <script>
+    function calcularDias() {
+      const dia = parseInt(document.getElementById("dia").value);
+      const mes = parseInt(document.getElementById("mes").value);
+
+      if (isNaN(dia) || isNaN(mes)) {
+        document.getElementById("resultado").textContent = "Por favor, insira valores válidos.";
+      } else {
+        const diasPassados = (mes - 1) * 30 + dia;
+        document.getElementById("resultado").textContent = "Desde o início do ano até a data informada passaram-se " + diasPassados + " dias.";
+      }
+    }
+  </script>
+</body>
+</html>
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cálculo de Valor Arrecadado</title>
+</head>
+<body>
+  <h1>Cálculo de Valor Arrecadado</h1>
+
+  <form>
+    <label for="quantidadePequenas">Quantidade de Camisetas Pequenas:</label>
+    <input type="number" id="quantidadePequenas" name="quantidadePequenas" min="0" required>
+
+    <label for="quantidadeMedias">Quantidade de Camisetas Médias:</label>
+    <input type="number" id="quantidadeMedias" name="quantidadeMedias" min="0" required>
+
+    <label for="quantidadeGrandes">Quantidade de Camisetas Grandes:</label>
+    <input type="number" id="quantidadeGrandes" name="quantidadeGrandes" min="0" required>
+
+    <button type="button" onclick="calcularValorArrecadado()">Calcular</button>
+  </form>
+
+  <p id="valorArrecadado"></p>
+
+  <script>
+    function calcularValorArrecadado() {
+      const precoPequena = 10;
+      const precoMedia = 12;
+      const precoGrande = 15;
+
+      const quantidadePequenas = parseInt(document.getElementById("quantidadePequenas").value);
+      const quantidadeMedias = parseInt(document.getElementById("quantidadeMedias").value);
+      const quantidadeGrandes = parseInt(document.getElementById("quantidadeGrandes").value);
+
+      if (isNaN(quantidadePequenas) || isNaN(quantidadeMedias) || isNaN(quantidadeGrandes)) {
+        document.getElementById("valorArrecadado").textContent = "Por favor, insira valores válidos.";
+      } else {
+        const valorArrecadado = quantidadePequenas * precoPequena + quantidadeMedias * precoMedia + quantidadeGrandes * precoGrande;
+        document.getElementById("valorArrecadado").textContent = "Valor arrecadado: R$ " + valorArrecadado.toFixed(2);
+      }
+    }
+  </script>
+</body>
+</html>
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cálculo de Distância entre Pontos</title>
+</head>
+<body>
+  <h1>Cálculo de Distância entre Pontos</h1>
+
+  <form>
+    <label for="x1">Ponto 1 - Coordenada x:</label>
+    <input type="number" id="x1" name="x1" required>
+
+    <label for="y1">Ponto 1 - Coordenada y:</label>
+    <input type="number" id="y1" name="y1" required>
+
+    <label for="x2">Ponto 2 - Coordenada x:</label>
+    <input type="number" id="x2" name="x2" required>
+
+    <label for="y2">Ponto 2 - Coordenada y:</label>
+    <input type="number" id="y2" name="y2" required>
+
+    <button type="button" onclick="calcularDistancia()">Calcular</button>
+  </form>
+
+  <p id="distancia"></p>
+
+  <script>
+    function calcularDistancia() {
+      const x1 = parseFloat(document.getElementById("x1").value);
+      const y1 = parseFloat(document.getElementById("y1").value);
+      const x2 = parseFloat(document.getElementById("x2").value);
+      const y2 = parseFloat(document.getElementById("y2").value);
+
+      if (isNaN(x1) || isNaN(y1) || isNaN(x2) || isNaN(y2)) {
+        document.getElementById("distancia").textContent = "Por favor, insira valores válidos.";
+      } else {
+        const distancia = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        document.getElementById("distancia").textContent = "A distância entre os pontos é: " + distancia.toFixed(2);
+      }
+    }
+  </script>
+</body>
+</html>
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Conversão de Tempo de Trabalho</title>
+</head>
+<body>
+  <h1>Conversão de Tempo de Trabalho</h1>
+
+  <form>
+    <label for="dias">Quantidade de Dias:</label>
+    <input type="number" id="dias" name="dias" min="0" required>
+
+    <button type="button" onclick="converterTempo()">Converter</button>
+  </form>
+
+  <p id="resultado"></p>
+
+  <script>
+    function converterTempo() {
+      const diasTrabalhados = parseInt(document.getElementById("dias").value);
+
+      if (isNaN(diasTrabalhados)) {
+        document.getElementById("resultado").textContent = "Por favor, insira um valor válido.";
+      } else {
+        const anos = Math.floor(diasTrabalhados / 365);
+        const meses = Math.floor((diasTrabalhados % 365) / 30);
+        const dias = (diasTrabalhados % 365) % 30;
+
+        let resultado = "";
+
+        if (anos > 0) {
+          resultado += anos + (anos === 1 ? " ano" : " anos");
+        }
+
+        if (meses > 0) {
+          resultado += (resultado === "" ? "" : ", ") + meses + (meses === 1 ? " mês" : " meses");
+        }
+
+        if (dias > 0) {
+          resultado += (resultado === "" ? "" : " e ") + dias + (dias === 1 ? " dia" : " dias");
+        }
+
+        document.getElementById("resultado").textContent = "Tempo de trabalho sem acidentes: " + resultado;
+      }
+    }
+  </script>
+</body>
+</html>
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cálculo de Salário</title>
+</head>
+<body>
+  <h1>Cálculo de Salário</h1>
+
+  <form>
+    <label for="salario">Salário:</label>
+    <input type="number" id="salario" name="salario" min="0" required>
+
+    <button type="button" onclick="calcularSalario()">Calcular</button>
+  </form>
+
+  <p id="resultado"></p>
+
+  <script>
+    function calcularSalario() {
+      const salarioInicial = parseFloat(document.getElementById("salario").value);
+
+      if (isNaN(salarioInicial)) {
+        document.getElementById("resultado").textContent = "Por favor, insira um valor válido.";
+      } else {
+        const aumento = salarioInicial * 0.15;
+        const salarioComAumento = salarioInicial + aumento;
+        const imposto = salarioComAumento * 0.08;
+        const salarioFinal = salarioComAumento - imposto;
+
+        document.getElementById("resultado").textContent = "Salário inicial: R$ " + salarioInicial.toFixed(2) + 
+          "\nSalário com aumento: R$ " + salarioComAumento.toFixed(2) + 
+          "\nSalário final após desconto de impostos: R$ " + salarioFinal.toFixed(2);
+      }
+    }
+  </script>
+</body>
+</html>
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Impressão de Número</title>
+</head>
+<body>
+  <h1>Impressão de Número</h1>
+
+  <form>
+    <label for="numero">Número (até 3 dígitos):</label>
+    <input type="number" id="numero" name="numero" min="0" max="999" required>
+
+    <button type="button" onclick="imprimirNumero()">Imprimir</button>
+  </form>
+
+  <p id="resultado"></p>
+
+  <script>
+    function imprimirNumero() {
+      const numero = parseInt(document.getElementById("numero").value);
+
+      if (isNaN(numero)) {
+        document.getElementById("resultado").textContent = "Por favor, insira um número válido.";
+      } else {
+        const centena = Math.floor(numero / 100);
+        const dezena = Math.floor((numero % 100) / 10);
+        const unidade = numero % 10;
+
+        document.getElementById("resultado").textContent = "CENTENA = " + centena +
+          " DEZENA = " + dezena +
+          " UNIDADE = " + unidade;
+      }
+    }
+  </script>
+</body>
+</html>
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cálculo da Área da Pizza</title>
+</head>
+<body>
+  <h1>Cálculo da Área da Pizza</h1>
+
+  <form>
+    <label for="raio">Raio da Pizza:</label>
+    <input type="number" id="raio" name="raio" step="0.01" required>
+
+    <button type="button" onclick="calcularArea()">Calcular</button>
+  </form>
+
+  <p id="resultado"></p>
+
+  <script>
+    function calcularArea() {
+      const raio = parseFloat(document.getElementById("raio").value);
+
+      if (isNaN(raio)) {
+        document.getElementById("resultado").textContent = "Por favor, insira um valor válido.";
+      } else {
+        const area = 3.14 * raio**2;
+
+        document.getElementById("resultado").textContent = "A área da pizza é: " + area.toFixed(2);
+      }
+    }
+  </script>
+</body>
+</html>
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rachar Conta</title>
+</head>
+<body>
+  <h1>Rachar Conta</h1>
+
+  <form>
+    <label for="valor">Valor Total da Conta:</label>
+    <input type="number" id="valor" name="valor" step="0.01" required>
+
+    <button type="button" onclick="calcularPagamento()">Calcular</button>
+  </form>
+
+  <p id="resultado"></p>
+
+  <script>
+    function calcularPagamento() {
+      const valorTotal = parseFloat(document.getElementById("valor").value);
+
+      if (isNaN(valorTotal)) {
+        document.getElementById("resultado").textContent = "Por favor, insira um valor válido.";
+      } else {
+        const valorCarlos = Math.floor(valorTotal / 3);
+        const valorAndre = Math.floor(valorTotal / 3);
+        const valorFelipe = valorTotal - (valorCarlos + valorAndre);
+
+        document.getElementById("resultado").textContent = "Carlos deve pagar: R$ " + valorCarlos.toFixed(2) +
+          "\nAndré deve pagar: R$ " + valorAndre.toFixed(2) +
+          "\nFelipe deve pagar: R$ " + valorFelipe.toFixed(2);
+      }
+    }
+  </script>
+</body>
+</html>
